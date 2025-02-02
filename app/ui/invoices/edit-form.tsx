@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import { Button } from "@/app/ui/button";
 import { State, updateInvoice } from "@/app/lib/actions";
-import { useActionState } from "react";
+import { useActionState /*useState*/ } from "react";
 
 export default function EditInvoiceForm({
   invoice,
@@ -22,6 +22,8 @@ export default function EditInvoiceForm({
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   const initialState: State = { message: null, errors: {} };
   const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
+  // const [customerId, setCustomerId] = useState(invoice.customer_id);
+  // console.log(customerId);
 
   return (
     <form action={formAction} aria-describedby="form-error">
@@ -36,7 +38,14 @@ export default function EditInvoiceForm({
               id="customer"
               name="customerId"
               className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+              // value={
+              //   console.log("Setting value: ", customerId)?.a || customerId
+              // }
               defaultValue={invoice.customer_id}
+              // onChange={(e) => {
+              //   setCustomerId(e.target.value);
+              //   console.log("Changed value:", e.target.value);
+              // }}
               aria-describedby="customer-error"
             >
               <option value="" disabled>
