@@ -36,10 +36,20 @@ export default function Page() {
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           <Image
             src="/hero-desktop.png"
-            width={1000}
+            width={
+              1000
+            } /* Set the width and height so the browser will know how to render the screen. It is not the actual rendered image size! */
             height={760}
             className="hidden md:block"
             alt="Screenshots of the dashboard project showing desktop version"
+          />
+          <Image
+            src="/hero-mobile.png"
+            width={560}
+            height={620}
+            // className="hidden max-md:block"
+            className="block md:hidden"
+            alt="Screenshot of the dashboard project showing mobile version"
           />
         </div>
       </div>
